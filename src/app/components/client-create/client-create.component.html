@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<h1>CADASTRO DE CLIENTES</h1>
+
+
+<form class="client-form">
+  <label for="name">Nome:</label>
+  <input #nameField [(ngModel)]="client.name" name="name" [formControl]="name" type="text" id="name" name="name"
+    pattern="^[a-zA-Z]+$" class="client-form-input" required>
+
+  <label for="document">CPF:</label>
+  <input [(ngModel)]="client.document" name="document" [formControl]="document" type="text" id="document"
+    name="document" pattern="^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}$" class="client-form-input" required>
+
+  <label for="address">Endereço:</label>
+  <input [(ngModel)]="client.address" name="address" [formControl]="address" type="text" id="address" name="address"
+    class="client-form-input" required>
+
+  <button type="button" (click)="createClient()" class="client-form-button">Save</button>
+
+</form>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Documento</th>
+      <th>Endereço</th>
+      <th colspan="2">Editar / Remover</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.name }}</td>
+      <td>{{ client.document }}</td>
+      <td>{{ client.address }}</td>
+      <td class="edit-cell">
+        <!-- <button (click)="updateClient(client.id)">Editar</button> -->
+        <button (click)="editClient(client.id)">Editar</button>
+      </td>
+      <td class="delete-cell">
+        <button (click)="deleteClient(client.id)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
