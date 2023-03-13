@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Client } from '../models/client.model';
+import { GetClientDetailsResponse } from '../models/clients-details-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,11 @@ export class ClientService {
 
   getClientById(clientId: number): Observable<Client> {
     return this.http.get<Client>(`${this.basePath}/${clientId}`);
+  }
+
+  getClientDetails(document: any): Observable<GetClientDetailsResponse> {
+    const url = `${this.basePath}/clients/${document}`;
+    return this.http.get<GetClientDetailsResponse>(url);
   }
 
   updateClient(id: any, client: Client): Observable<Client> {

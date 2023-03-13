@@ -1,6 +1,9 @@
+import { Account } from "./account.model";
+
 export class Client {
-    id?: any; 
+    id?: string;
     name?: string;
     document?: string;
     address?: string;
+    accountNumber?: number;
 }

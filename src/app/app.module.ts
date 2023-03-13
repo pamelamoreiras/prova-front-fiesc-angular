@@ -7,12 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientCreateComponent } from './components/client-create/client-create.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { AccountComponent } from './components/account/account.component';
+import { ClientDetailsComponent } from './components/client-details/client-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientCreateComponent,
-    HeaderComponent
+    HeaderComponent,
+    AccountComponent,
+    ClientDetailsComponent
   ],
   imports: [
     BrowserModule,

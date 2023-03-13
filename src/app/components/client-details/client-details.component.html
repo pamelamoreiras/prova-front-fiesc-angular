@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<h2>Detalhes do cliente:</h2>
+<div *ngIf="clientDetails">
+  <p><strong>Nome:</strong> {{ clientDetails.name }}</p>
+  <p><strong>CPF:</strong> {{ clientDetails.document }}</p>
+  <p><strong>Endereço:</strong> {{ clientDetails.address }}</p>
+  <p><strong>Contas:</strong></p>
+  <ul>
+    <li *ngFor="let account of clientDetails.accounts">
+      {{ account.id }} - {{ account.accountNumber }} - R$ {{ account.balance }}
+    </li>
+  </ul>
+</div>

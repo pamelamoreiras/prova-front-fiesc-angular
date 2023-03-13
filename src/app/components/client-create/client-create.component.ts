@@ -14,7 +14,7 @@ export class ClientCreateComponent {
   clients: Client[] = [];
   isEditing = false;
   editMode = false;
-  editingClientId: string | null = null;
+  editingClientId?: string | null = null;
   editingClient?: Client;
 
   @ViewChild('nameField') nameField: ElementRef | undefined;
@@ -51,7 +51,10 @@ export class ClientCreateComponent {
       );
   }
 
-  editClient(id: number): void {
+  editClient(id: any): void {
+
+
+    
     const foundClient = this.clients.find(client => client.id === id);
     if (foundClient) {
       this.client = foundClient;
